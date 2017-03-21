@@ -1,0 +1,37 @@
+{
+  "name": "road2koa",
+  "version": "0.0.1",
+  "description": "學習 koa 的非官方範例",
+  "main": "index.js",
+  "dependencies": {
+    "co-views": "^2.1.0",
+    "koa": "^2.2.0",
+    "koa-logger": "^2.0.1",
+    "koa-router": "^7.0.1",
+    "koa-static": "^3.0.0",
+    "mz": "^2.6.0",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "bin": {},
+  "keywords": [
+    "koa",
+    "async",
+    "await"
+  ],
+  "homepage": "https://github.com/ccckmit/road2koa",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/ccckmit/road2koa.git"
+  },
+  "author": {
+    "name": "Chung-Chen Chen",
+    "email": "ccckmit@gmail.com"
+  },
+  "license": "MIT"
+}
