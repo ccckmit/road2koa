@@ -19,7 +19,11 @@ koa-router 的 @2 新版說明位於 <https://github.com/alexmingoia/koa-router/
 
 關於 async/await 的用法請參考 [JavaScript 好用的 async 異步函數！](http://fred-zone.blogspot.tw/2016/07/javascript-async.html)
 
-關於 koa@2 的用法請參考 [Koa 2 起手式！](http://fred-zone.blogspot.tw/2017/02/koa-2.html) 
+關於 koa@2 的用法請參考
+
+* [Koa 2 起手式！](http://fred-zone.blogspot.tw/2017/02/koa-2.html) 
+* [「新手向」koa2从起步到填坑](http://www.jianshu.com/p/6b816c609669)
+* [创建koa2工程](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001471087582981d6c0ea265bf241b59a04fa6f61d767f6000)
 
 關於檔案存取的 mz 套件請參考 <https://github.com/normalize/mz>
 
