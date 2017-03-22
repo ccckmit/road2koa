@@ -4,6 +4,7 @@
   "description": "學習 koa 的非官方範例",
   "main": "index.js",
   "dependencies": {
+    "async-busboy": "^0.3.4",
     "co-views": "^2.1.0",
     "koa": "^2.2.0",
     "koa-logger": "^2.0.1",
