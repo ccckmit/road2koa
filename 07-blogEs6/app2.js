@@ -5,11 +5,9 @@ var bodyParser = require('koa-bodyparser')
 
 var app = new Koa()
 var router = new Router()
-
-app.use(bodyParser())
-
 var posts = []
 
+app.use(bodyParser())
 app.use(logger())
 
 router
@@ -83,26 +81,6 @@ ${content}
 `
 }
 
-function listRender (posts) {
-  return layoutRender('Posts', `
-  <h1>Posts</h1>
-  <p>You have <strong>${posts.length}</strong> posts!</p>
-  <p><a href="/post/new">Create a Post</a></p>
-  <ul id="posts">
-    ${posts.map(post => `
-      <li>
-        <h2>${post.title}</h2>
-        <p><a href="/post/${post.id}">Read post</a></p>
-      </li>
-    `).join('\n')}
-  </ul>
-`)
-}
-
-async function list (ctx) {
-  ctx.body = listRender(posts)
-}
-
 function newRender () {
   return layoutRender('New Post', `
   <h1>New Post</h1>
@@ -138,6 +116,26 @@ async function create (ctx) {
   post.created_at = new Date()
   post.id = id
   ctx.redirect('/')
+}
+
+function listRender (posts) {
+  return layoutRender('Posts', `
+  <h1>Posts</h1>
+  <p>You have <strong>${posts.length}</strong> posts!</p>
+  <p><a href="/post/new">Create a Post</a></p>
+  <ul id="posts">
+    ${posts.map(post => `
+      <li>
+        <h2>${post.title}</h2>
+        <p><a href="/post/${post.id}">Read post</a></p>
+      </li>
+    `).join('\n')}
+  </ul>
+`)
+}
+
+async function list (ctx) {
+  ctx.body = listRender(posts)
 }
 
 app.use(router.routes()).listen(3000)
