@@ -16,6 +16,27 @@ router
   .get('/post/:id', show)
   .post('/post', create)
 
+async function add (ctx) {
+  ctx.body = newRender()
+}
+async function show (ctx) {
+  var post = posts[ctx.params.id]
+  if (!post) ctx.throw(404, 'invalid post id')
+  ctx.body = await showRender(post)
+}
+
+async function create (ctx) {
+  var post = ctx.request.body
+  var id = posts.push(post) - 1
+  post.created_at = new Date()
+  post.id = id
+  ctx.redirect('/')
+}
+
+async function list (ctx) {
+  ctx.body = listRender(posts)
+}
+
 function layoutRender (title, content) {
   return `
 <html>
@@ -93,29 +114,11 @@ function newRender () {
   `)
 }
 
-async function add (ctx) {
-  ctx.body = newRender()
-}
-
 function showRender (post) {
   return `
   <h1>${post.title}</h1>
   <p>${post.body}</p>
   `
-}
-
-async function show (ctx) {
-  var post = posts[ctx.params.id]
-  if (!post) ctx.throw(404, 'invalid post id')
-  ctx.body = await showRender(post)
-}
-
-async function create (ctx) {
-  var post = ctx.request.body
-  var id = posts.push(post) - 1
-  post.created_at = new Date()
-  post.id = id
-  ctx.redirect('/')
 }
 
 function listRender (posts) {
@@ -132,10 +135,6 @@ function listRender (posts) {
     `).join('\n')}
   </ul>
 `)
-}
-
-async function list (ctx) {
-  ctx.body = listRender(posts)
 }
 
 app.use(router.routes()).listen(3000)
